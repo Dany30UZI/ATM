@@ -20,15 +20,15 @@
          <right>
             <VBox id="vBoxRightPin" prefHeight="396.0" prefWidth="367.0" stylesheets="@app.css" BorderPane.alignment="CENTER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bine ai venit!">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="30.0" left="140.0" top="30.0" />
+                        <Insets bottom="30.0" left="150.0" top="30.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField id="pinText" fx:id="textView" editable="false" prefHeight="59.0" prefWidth="507.0" promptText="Introduce pinul" stylesheets="@app.css">
+                  <TextField id="pinText" fx:id="textView" editable="false" prefHeight="59.0" prefWidth="507.0" promptText="Enter the pin" stylesheets="@app.css">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -58,9 +58,9 @@
                         <Button mnemonicParsing="false" onAction="#digitsHand" prefHeight="87.0" prefWidth="154.0" text="7" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#digitsHand" prefHeight="86.0" prefWidth="162.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#digitsHand" prefHeight="68.0" prefWidth="267.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="74.0" prefWidth="153.0" text="Sterge" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="74.0" prefWidth="153.0" text="Delete" GridPane.rowIndex="3" />
                         <Button mnemonicParsing="false" onAction="#digitsHand" prefHeight="89.0" prefWidth="197.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Button mnemonicParsing="false" onAction="#switchToPanel" prefHeight="133.0" prefWidth="227.0" text="Confirma" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#switchToPanel" prefHeight="133.0" prefWidth="227.0" text="Confirm" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                      </children>
                      <VBox.margin>
                         <Insets left="40.0" right="40.0" />

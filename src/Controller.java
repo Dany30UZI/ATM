@@ -5,10 +5,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class Controller {
     private Stage stage;
@@ -16,6 +18,16 @@ public class Controller {
     private Parent root;
     @FXML
     private TextField textView;
+    @FXML
+    private TextField balanta;
+    @FXML
+    private TextField textViewPanel;
+    @FXML
+    private TextArea mesajPanel;
+
+    DecimalFormat decimalFormat = new DecimalFormat("#.##");
+    double c = 0;
+
 
 
 
@@ -45,10 +57,10 @@ public class Controller {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else textView.setText("Pin incorect");
+            } else textView.setText("Incorrect pin.");
 
         }catch(Exception n){
-            textView.setText("Foloseste cifrele");
+            textView.setText("Use the numbers");
         }
     }
 
@@ -65,17 +77,83 @@ public class Controller {
 
     @FXML
     void depunereBani(ActionEvent event) {
+        try {
+            double bal = Double.parseDouble(balanta.getText());
+            double dep = Double.parseDouble(textViewPanel.getText());
+            if (dep > 0) {
+                c = bal + dep;
+                String result = decimalFormat.format(c);
+                balanta.setText(result);
+                String cont = "You have deposit the amount of " + dep + " lei!";
+                mesajPanel.setText(cont);
+            } else mesajPanel.setText("Incorrect amount.");
 
+        }catch(Exception n){
+            mesajPanel.setText("Incorrect input uses numbers!");
+        }
     }
 
     @FXML
     void retragreBani(ActionEvent event) {
+        try {
+            double bal = Double.parseDouble(balanta.getText());
+            double ret = Double.parseDouble(textViewPanel.getText());
+            if (ret <= bal) {
+                c = bal - ret;
+                String result = decimalFormat.format(c);
+                balanta.setText(result);
+                String cont = "You have withdrawn the amount of " + ret + " lei!";
+                mesajPanel.setText(cont);
+            } else mesajPanel.setText("Insufficient funds!");
 
+        }catch(Exception n){
+            mesajPanel.setText("Incorrect input uses numbers!");
+        }
     }
 
     @FXML
-    void trimiteBani(ActionEvent event) {
+    void fastCash(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("accInfo.fxml"));
+            scene = new Scene(root);
+            String css = this.getClass().getResource("app.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    @FXML
+    void ajutor(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("ajutor.fxml"));
+            scene = new Scene(root);
+            String css = this.getClass().getResource("app.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void inapoiPanel(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("panel.fxml"));
+            scene = new Scene(root);
+            String css = this.getClass().getResource("app.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
